@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  rating: MyString
+  runtime: 1
+  theater_id: 1
+  realease_date: 2022-08-30 15:17:28
+  sub_genre: MyString
+
+two:
+  name: MyString
+  description: MyText
+  rating: MyString
+  runtime: 1
+  theater_id: 1
+  realease_date: 2022-08-30 15:17:28
+  sub_genre: MyString
