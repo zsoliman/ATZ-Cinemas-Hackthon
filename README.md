@@ -1,24 +1,43 @@
-# README
+# AMT Ticket Management System
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Setup:
+- run `bundle install` to install dependencies
+- run to start both servers `foreman start -f Procfile.dev`
 
-Things you may want to cover:
 
-* Ruby version
+### Data:
+- Pull movies from Movie API
+- Use data to seed rails database
 
-* System dependencies
 
-* Configuration
+### Ideas:
+- Cinemas / Theaters are seperated by genre or theme
+- Movies will run on a continuous marathon (no need for show times)
+  - Only 1 ticket needs to be purchased to watch movies all day
+  - Option for food / snack delivery throughout the movie for extra cost
 
-* Database creation
+<hr>
 
-* Database initialization
+## Cinema Page:
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+### Movie Timeline / Carousel:
+- Carousel / Timeline displaying all movies playing throughout the day
+- Clicking on an item on the carousel will update the details section below to match the movie
 
-* Deployment instructions
+## Big "BUY PASS" button
 
-* ...
+### Details section:
+  - Movie title
+  - Movie director
+  - Movie rating (in stars)
+  - Movie sub genres (if any)
+  - Movie description
+
+<hr>
+
+## Seat selection page:
+
+<hr>
+
+## Snacks / Food page:
