@@ -26,9 +26,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_31_000605) do
   end
 
   create_table "seats", force: :cascade do |t|
-    t.integer "seat_num"
+    t.string "seat_num"
     t.integer "theater_id"
     t.boolean "is_available"
+    t.integer "ticket_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
