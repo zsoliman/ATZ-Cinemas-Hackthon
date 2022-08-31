@@ -2,13 +2,14 @@ Theater.destroy_all
 Movie.destroy_all
 
 
+puts 'seeding theaters...'
 
 t1 = Theater.create(capacity: 20, genre: "Romance")
 t2 = Theater.create(capacity: 20, genre: "Comedy")
 t3 = Theater.create(capacity: 20, genre: "Action")
 t4 = Theater.create(capacity: 20, genre: "Horror")
 
-puts "Actions movies"
+puts "seeding actions movies..."
 #ACTION MOVIES
 m1 = Movie.create!(name: "Bullet Train", description: "Five assassins aboard a fast moving bullet train find out their missions have something in common.", rating: "R", runtime: 123, theater_id: 3, release_date: 2022, genres: "action-comdey-thriller", poster_img_src: "https://image.tmdb.org/t/p/w500/tVxDe01Zy3kZqaZRNiXFGDICdZk.jpg", background_img_src: "https://image.tmdb.org/t/p/w500/C8FpZfTPEZDjngPlatiFsaDB4A.jpg")
 m2 = Movie.create!(name: "Prey", description: "The origin story of the Predator in the world of the Comanche Nation 300 years ago. Naru, a skilled warrior, fights to protect her tribe against one of the first highly-evolved Predators to land on Earth.", rating: "R", runtime: 99, theater_id: 3, release_date: 2022, genres: "action-adventure-drama", poster_img_src: "https://image.tmdb.org/t/p/w500/ujr5pztc1oitbe7ViMUOilFaJ7s.jpg", background_img_src: "https://image.tmdb.org/t/p/w500/7ZO9yoEU2fAHKhmJWfAc2QIPWJg.jpg")
@@ -18,7 +19,7 @@ m5 = Movie.create!(name: "Minority Report", description: "A team of commandos on
 m6 = Movie.create!(name: "Matrix", description: "When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence.", rating: "R", runtime: 136, theater_id: 3, release_date: 1999, genres: "action-scifi", poster_img_src: 'https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg', background_img_src: 'https://image.tmdb.org/t/p/w500/n2nm4aZRmXyJ9LT4xQX9X6ThcP7.jpg')
 m7 = Movie.create!(name: "The Terminator", description: "A human soldier is sent from 2029 to 1984 to stop an almost indestructible cyborg killing machine, sent from the same year, which has been programmed to execute a young woman whose unborn son is the key to humanity's future salvation.", rating: "R", runtime: 147, theater_id: 3, release_date: 1984, genres: "action-scifi", poster_img_src: 'https://image.tmdb.org/t/p/w500/qvktm0BHcnmDpul4Hz01GIazWPr.jpg', background_img_src: 'https://image.tmdb.org/t/p/w500/ahUaAgnkFu7QlBh5h4LCNeaSurV.jpg')
 
-puts "Romance Movies"
+puts "seeding romance Movies..."
 #ROMANCE MOVIES
 
 m8 = Movie.create!(name: "Love & Gelato", description: "Lina makes a promise to her sick mother that she'll spend the summer before college in Rome, where she falls for the city, the people - and the 'gelato'.", rating: "TV-14", runtime: 110, release_date: 2022, genres: "Romance-Comedy-Drama", theater_id: 1, poster_img_src: 'https://image.tmdb.org/t/p/w500/iT58Y3eX5Va6OA2XIrmKtlH2DG2.jpg', background_img_src: 'https://image.tmdb.org/t/p/w500/eUwnVr8Z6kJFBP8NzOU4GORzVtb.jpg')
@@ -29,8 +30,8 @@ m12 = Movie.create!(name: "La La Land", description: "While navigating their car
 m13 = Movie.create!(name: "Me Before You", description: "A girl in a small town forms an unlikely bond with a recently-paralyzed man she's taking care of.", rating: "PG-13", runtime: 104, release_date: 2016, genres: "Romance-Drama", theater_id: 1)
 m14 = Movie.create!(name: "Enchanted", description: "A young maiden in a land called Andalasia, who is prepared to be wed, is sent away to New York City by an evil Queen, where she falls in love with a lawyer.", rating: "PG", runtime: 103, release_date: 2007, genres: "Romance-Drama-Adventure-Animation", theater_id: 1, poster_img_src: 'https://image.tmdb.org/t/p/w500/8KCNzCArLlvLdQoHx6npua2VSVc.jpg', background_img_src: 'https://image.tmdb.org/t/p/w500/u4UpRDi0w84aNrigr9p049rMHiy.jpg')
 
-puts "Comedy movies"
-#DRAMA MOVIES
+puts "seeding comedy movies..."
+#Comedy MOVIES
 
 m15 = Movie.create(name: "Meet the Parents",
 description: "Male nurse Greg Focker meets his girlfriend's parents before proposing, but her suspicious father is every date's worst nightmare.",
@@ -106,7 +107,7 @@ poster_img_src: 'https://image.tmdb.org/t/p/w500/9f4CQGz30aqwLxjXNjWku9nGHbo.jpg
 background_img_src: 'https://image.tmdb.org/t/p/w500/9f4CQGz30aqwLxjXNjWku9nGHbo.jpg'
 )
 
-puts "horror movies"
+puts "seeding horror movies..."
 #HORROR
 
 m22 = Movie.create!(name: "It", description: "In the summer of 1989, a group of bullied kids band together to destroy a shape-shifting monster, which disguises itself as a clown and preys on the children of Derry, their small Maine town.", rating: "R", runtime: 135, release_date: 2017, genres: "Horror", theater_id: 4, poster_img_src: 'https://image.tmdb.org/t/p/w500/9E2y5Q7WlCVNEhP5GiVTjhEhx1o.jpg', background_img_src: 'https://image.tmdb.org/t/p/w500/tcheoA2nPATCm2vvXw2hVQoaEFD.jpg')
@@ -123,3 +124,45 @@ m26 = Movie.create!(name: "The Conjuring", description: "Paranormal investigator
 m27 = Movie.create!(name: "Midsommar", description: "A couple travels to Northern Europe to visit a rural hometown's fabled Swedish mid-summer festival. What begins as an idyllic retreat quickly devolves into an increasingly violent and bizarre competition at the hands of a pagan cult.", rating: "R", runtime: 148, release_date: 2019, genres: "Horror-Drama-Mystery", theater_id: 4, poster_img_src: 'https://image.tmdb.org/t/p/w500/7LEI8ulZzO5gy9Ww2NVCrKmHeDZ.jpg', background_img_src: 'https://image.tmdb.org/t/p/w500/8yE6wv1l570zWyh6zmkFxysw3Kc.jpg')
 
 m28 = Movie.create!(name: "The Curse of La Llorona", description: "Ignoring the eerie warning of a troubled mother suspected of child endangerment, a social worker and her own small kids are soon drawn into a frightening supernatural realm.", rating: "R", runtime: 93, release_date: 2019, genres: "Horror-Mystery-Thriller", theater_id: 4, poster_img_src: 'https://image.tmdb.org/t/p/w500/jhZlXSnFUpNiLAek9EkPrtLEWQI.jpg', background_img_src: '	https://image.tmdb.org/t/p/w500/9p5BuzUNcvCltQAIiDLILEsH0dk.jpg')
+
+puts 'seeding seats...'
+
+rowLetters = ['A', 'B', 'C', 'D']
+currRow = 0
+currSeat = 0
+
+20.times do |index|
+  if index % 5 == 0 && index != 0
+    currRow += 1
+    currSeat = 0
+  end
+  currSeat += 1
+  Seat.create!(seat_num: "#{rowLetters[currRow]}#{currSeat}", theater_id: 1, is_available: true)
+end
+
+20.times do |index|
+  if index % 5 == 0 && index != 0
+    currRow += 1
+    currSeat = 0
+  end
+  currSeat += 1
+  Seat.create!(seat_num: "#{rowLetters[currRow]}#{currSeat}", theater_id: 2, is_available: true)
+end
+
+20.times do |index|
+  if index % 5 == 0 && index != 0
+    currRow += 1
+    currSeat = 0
+  end
+  currSeat += 1
+  Seat.create!(seat_num: "#{rowLetters[currRow]}#{currSeat}", theater_id: 3, is_available: true)
+end
+
+20.times do |index|
+  if index % 5 == 0 && index != 0
+    currRow += 1
+    currSeat = 0
+  end
+  currSeat += 1
+  Seat.create!(seat_num: "#{rowLetters[currRow]}#{currSeat}", theater_id: 4, is_available: true)
+end
