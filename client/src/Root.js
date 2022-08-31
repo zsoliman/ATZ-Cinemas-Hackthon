@@ -7,24 +7,34 @@ import SeatSelect from './SeatSelect';
 const Root = () => {
    const [movieData, setMovieData] = useState([]);
    const [seatData, setSeatData] = useState([]);
+   const [ticketData, setTicketData] = useState([]);
+
+
+   const fetchMovies = async () => {
+      const request = await fetch('http://localhost:3000/');
+      const data = await request.json();
+      setMovieData(data);
+   };
+
+   const fetchSeats = async () => {
+      const request = await fetch('http://localhost:3000/seat');
+      const data = await request.json();
+      setSeatData(sliceIntoChunks(data, 20));
+   };
+
+   const fetchTickets = async () => {
+      const request = await fetch('http://localhost:3000/ticket');
+      const data = await request.json(0)
+      setTicketData(data)
+   }
 
    useEffect(() => {
-      const fetchMovies = async () => {
-         const request = await fetch('http://localhost:3000/');
-         const data = await request.json();
-         setMovieData(data);
-      };
       fetchMovies();
+      fetchSeats();
+      fetchTickets()
    }, []);
 
-   useEffect(() => {
-      const fetchSeats = async () => {
-         const request = await fetch('http://localhost:3000/seat');
-         const data = await request.json();
-         setSeatData(sliceIntoChunks(data, 20));
-      };
-      fetchSeats();
-   }, []);
+   console.log(ticketData)
 
    //  const t1Seats = [move]
    function sliceIntoChunks(arr, chunkSize) {

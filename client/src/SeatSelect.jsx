@@ -10,29 +10,37 @@ const SeatSelect = ({ seatData }) => {
       return res;
    }
 
-   const handleClick = (seatId) => {
-    console.log(seatId)
-    fetch(`http://localhost:3000/seat/${seatId}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify({"is_available": false})
-    })
-    // .then(res => res.json())
-    // .then(jsonres => console.log(jsonres))
-   }
+   const handleClick = (seatId, trigger) => {
+      console.log(trigger.classList)
+      fetch(`http://localhost:3000/seat/${seatId}`, {
+         method: 'PATCH',
+         headers: {
+            'Content-type': 'application/json',
+         },
+         body: JSON.stringify({ 'is_available': false }),
+      });
+      // .then(res => res.json())
+      // .then(jsonres => console.log(jsonres))
+   };
 
    console.log(seats);
    return (
       <div className='seat-page-container'>
-        <div className="screen"> SCREEN </div>
+         <div className='screen'> SCREEN </div>
          <div className='seat-list'>
             {seats.map((row) => {
                return (
-                  <div className="seat-row">
+                  <div className='seat-row'>
                      {row.map((seat) => {
-                        return <div className='seat' onClick={() => handleClick(seat.id)}> {seat.seat_num} </div>;
+                        return (
+                           <div
+                              className='seat'
+                              onClick={(e) => handleClick(seat.id,e.target)}
+                           >
+                              {' '}
+                              {seat.seat_num}{' '}
+                           </div>
+                        );
                      })}
                   </div>
                );
