@@ -125,8 +125,23 @@ m27 = Movie.create!(name: "Midsommar", description: "A couple travels to Norther
 
 m28 = Movie.create!(name: "The Curse of La Llorona", description: "Ignoring the eerie warning of a troubled mother suspected of child endangerment, a social worker and her own small kids are soon drawn into a frightening supernatural realm.", rating: "R", runtime: 93, release_date: 2019, genres: "Horror-Mystery-Thriller", theater_id: 4, poster_img_src: 'https://image.tmdb.org/t/p/w500/jhZlXSnFUpNiLAek9EkPrtLEWQI.jpg', background_img_src: '	https://image.tmdb.org/t/p/w500/9p5BuzUNcvCltQAIiDLILEsH0dk.jpg')
 
-puts 'seeding seats...'
+puts 'seeding tickets...'
 
+20.times do 
+Ticket.create!(theater_id: 1, seat_id: nil, price: 20)
+end
+20.times do 
+Ticket.create!(theater_id: 2, seat_id: nil, price: 20)
+end
+20.times do 
+Ticket.create!(theater_id: 3, seat_id: nil, price: 20)
+end
+20.times do 
+Ticket.create!(theater_id: 4, seat_id: nil, price: 20)
+end
+
+puts 'seeding seats...'
+# Seat.create!(seat_num: 1, theater_id: 1, is_available: true, ticket_id: 1)
 rowLetters = ['A', 'B', 'C', 'D']
 currRow = 0
 currSeat = 0
@@ -137,32 +152,38 @@ currSeat = 0
     currSeat = 0
   end
   currSeat += 1
-  Seat.create!(seat_num: "#{rowLetters[currRow]}#{currSeat}", theater_id: 1, is_available: true)
+  Seat.create!(seat_num: "#{rowLetters[currRow]}#{currSeat}", theater_id: 1, is_available: true, ticket_id: 1)
 end
 
+currRow = 0
+currSeat = 0
 20.times do |index|
   if index % 5 == 0 && index != 0
     currRow += 1
     currSeat = 0
   end
   currSeat += 1
-  Seat.create!(seat_num: "#{rowLetters[currRow]}#{currSeat}", theater_id: 2, is_available: true)
+  Seat.create!(seat_num: "#{rowLetters[currRow]}#{currSeat}", theater_id: 2, is_available: true, ticket_id: 1)
 end
 
+currRow = 0
+currSeat = 0
 20.times do |index|
   if index % 5 == 0 && index != 0
     currRow += 1
     currSeat = 0
   end
   currSeat += 1
-  Seat.create!(seat_num: "#{rowLetters[currRow]}#{currSeat}", theater_id: 3, is_available: true)
+  Seat.create!(seat_num: "#{rowLetters[currRow]}#{currSeat}", theater_id: 3, is_available: true, ticket_id: 1)
 end
 
+currRow = 0
+currSeat = 0
 20.times do |index|
   if index % 5 == 0 && index != 0
     currRow += 1
     currSeat = 0
   end
   currSeat += 1
-  Seat.create!(seat_num: "#{rowLetters[currRow]}#{currSeat}", theater_id: 4, is_available: true)
+  Seat.create!(seat_num: "#{rowLetters[currRow]}#{currSeat}", theater_id: 4, is_available: true, ticket_id: 1)
 end
