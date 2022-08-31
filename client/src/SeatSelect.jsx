@@ -1,4 +1,4 @@
-const SeatSelect = ({ seatData }) => {
+const SeatSelect = ({ purchaseData, setPurchaseData, seatData }) => {
    const seats = sliceIntoChunks(seatData, 5);
 
    // console.log(seatData)
@@ -13,14 +13,22 @@ const SeatSelect = ({ seatData }) => {
    }
 
    const handleClick = (seatId, trigger) => {
-      // console.log(trigger.classList)
-      fetch(`http://localhost:3000/seat/${seatId}`, {
-         method: 'PATCH',
-         headers: {
-            'Content-type': 'application/json',
-         },
-         body: JSON.stringify({ 'is_available': false }),
-      });
+
+      trigger.classList.toggle('clicked-seat')
+      if (!purchaseData.includes(seatId)) {
+         setPurchaseData([...purchaseData, seatId])
+      } else {
+         const filteredPurchases = purchaseData.filter((purchase) => purchase !== seatId)
+         setPurchaseData(filteredPurchases)
+      }
+      // setPurchaseData(inCart)
+      // fetch(`http://localhost:3000/seat/${seatId}`, {
+      //    method: 'PATCH',
+      //    headers: {
+      //       'Content-type': 'application/json',
+      //    },
+      //    body: JSON.stringify({ 'is_available': false }),
+      // });
       // .then(res => res.json())
       // .then(jsonres => console.log(jsonres))
    };

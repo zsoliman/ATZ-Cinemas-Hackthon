@@ -6,10 +6,10 @@ const Cinema = ({ movieData }) => {
    const { capacity, genre, movies } = movieData;
    const [selectedMovieId, setSelectedMovieId] = useState(0);
 
-   console.log('movieData: ', movieData);
+  //  console.log('movieData: ', movieData);
    const selectedMovie = movies.find((movie) => movie.id === selectedMovieId);
 
-   console.log(selectedMovie);
+  //  console.log(selectedMovie);
 
    return (
       <div className='cinema-page-container'>
