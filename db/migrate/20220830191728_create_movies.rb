@@ -6,7 +6,7 @@ class CreateMovies < ActiveRecord::Migration[7.0]
       t.string :rating
       t.integer :runtime
       t.integer :theater_id
-      t.datetime :release_date
+      t.integer :release_date
       t.string :genres
 
       t.timestamps
