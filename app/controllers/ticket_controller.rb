@@ -6,6 +6,11 @@ class TicketController < ApplicationController
         render json: Ticket.all
     end
 
+    def show
+        ticket = Ticket.find_by!(id: params[:id])
+        render json: ticket
+    end
+
     def purchase
         t = Ticket.find_by!(id: params[:id])
         if t.update(ticket_params)

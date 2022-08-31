@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   
   get '/ticket', to: "ticket#index"
+  get '/ticket/:id', to: "ticket#show"
   patch '/ticket/:id', to: "ticket#purchase"
   
  
