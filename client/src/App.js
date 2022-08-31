@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function App({ movieData }) {
    
-  console.log(movieData)
+  // console.log(movieData)
 
    return (
       <div className='App'>
