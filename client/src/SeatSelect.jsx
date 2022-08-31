@@ -1,6 +1,8 @@
 const SeatSelect = ({ seatData }) => {
    const seats = sliceIntoChunks(seatData, 5);
 
+   // console.log(seatData)
+
    function sliceIntoChunks(arr, chunkSize) {
       const res = [];
       for (let i = 0; i < arr.length; i += chunkSize) {
@@ -11,7 +13,7 @@ const SeatSelect = ({ seatData }) => {
    }
 
    const handleClick = (seatId, trigger) => {
-      console.log(trigger.classList)
+      // console.log(trigger.classList)
       fetch(`http://localhost:3000/seat/${seatId}`, {
          method: 'PATCH',
          headers: {
@@ -35,7 +37,7 @@ const SeatSelect = ({ seatData }) => {
                         return (
                            <div
                               className='seat'
-                              onClick={(e) => handleClick(seat.id,e.target)}
+                              onClick={(e) => handleClick(seat.id, e.target)}
                            >
                               {' '}
                               {seat.seat_num}{' '}
