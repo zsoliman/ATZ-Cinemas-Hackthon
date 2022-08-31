@@ -34,9 +34,9 @@
 }
 
 .movie-list {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
+   display: flex;
+   flex-direction: row;
+   gap: 10px;
 }
 
 .movie-poster {
@@ -46,4 +46,7 @@
    border: 5px solid black;
    width: 30vh;
    height: 30vh;
+}
+
+.movie-details {
 }
