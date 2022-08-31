@@ -6,4 +6,6 @@ Rails.application.routes.draw do
 
   root "theater#index" 
   get "/theater/:id", to: "theater#show"
+
+  
 end
