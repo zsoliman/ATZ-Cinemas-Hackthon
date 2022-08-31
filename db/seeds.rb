@@ -123,3 +123,16 @@ m26 = Movie.create!(name: "The Conjuring", description: "Paranormal investigator
 m27 = Movie.create!(name: "Midsommar", description: "A couple travels to Northern Europe to visit a rural hometown's fabled Swedish mid-summer festival. What begins as an idyllic retreat quickly devolves into an increasingly violent and bizarre competition at the hands of a pagan cult.", rating: "R", runtime: 148, release_date: 2019, genres: "Horror-Drama-Mystery", theater_id: 4, poster_img_src: 'https://image.tmdb.org/t/p/w500/7LEI8ulZzO5gy9Ww2NVCrKmHeDZ.jpg', background_img_src: 'https://image.tmdb.org/t/p/w500/8yE6wv1l570zWyh6zmkFxysw3Kc.jpg')
 
 m28 = Movie.create!(name: "The Curse of La Llorona", description: "Ignoring the eerie warning of a troubled mother suspected of child endangerment, a social worker and her own small kids are soon drawn into a frightening supernatural realm.", rating: "R", runtime: 93, release_date: 2019, genres: "Horror-Mystery-Thriller", theater_id: 4, poster_img_src: 'https://image.tmdb.org/t/p/w500/jhZlXSnFUpNiLAek9EkPrtLEWQI.jpg', background_img_src: '	https://image.tmdb.org/t/p/w500/9p5BuzUNcvCltQAIiDLILEsH0dk.jpg')
+
+20.times do 
+Ticket.create!(theater_id: 1, seat_id: nil, price: 20)
+end
+20.times do 
+Ticket.create!(theater_id: 2, seat_id: nil, price: 20)
+end
+20.times do 
+Ticket.create!(theater_id: 3, seat_id: nil, price: 20)
+end
+20.times do 
+Ticket.create!(theater_id: 4, seat_id: nil, price: 20)
+end
