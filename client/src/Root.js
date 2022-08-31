@@ -8,7 +8,7 @@ const Root = () => {
    const [movieData, setMovieData] = useState([]);
    const [seatData, setSeatData] = useState([]);
    const [ticketData, setTicketData] = useState([]);
-
+   const [purchaseData, setPurchaseData] = useState([]);
 
    const fetchMovies = async () => {
       const request = await fetch('http://localhost:3000/');
@@ -24,17 +24,17 @@ const Root = () => {
 
    const fetchTickets = async () => {
       const request = await fetch('http://localhost:3000/ticket');
-      const data = await request.json(0)
-      setTicketData(data)
-   }
+      const data = await request.json(0);
+      setTicketData(data);
+   };
 
    useEffect(() => {
       fetchMovies();
       fetchSeats();
-      fetchTickets()
+      fetchTickets();
    }, []);
 
-   console.log(ticketData)
+  //  console.log(ticketData);
 
    //  const t1Seats = [move]
    function sliceIntoChunks(arr, chunkSize) {
@@ -46,7 +46,7 @@ const Root = () => {
       return res;
    }
 
-   console.log(seatData);
+   console.log(purchaseData);
 
    return (
       <BrowserRouter>
@@ -68,22 +68,46 @@ const Root = () => {
                path='/cinema/horror'
                element={<Cinema movieData={movieData[3]} />}
             />
-            
+
             <Route
                path='/cinema/romance/seats'
-               element={<SeatSelect seatData={seatData[0]} />}
+               element={
+                  <SeatSelect
+                     purchaseData={purchaseData}
+                     setPurchaseData={setPurchaseData}
+                     seatData={seatData[0]}
+                  />
+               }
             />
             <Route
                path='/cinema/comedy/seats'
-               element={<SeatSelect seatData={seatData[1]} />}
+               element={
+                  <SeatSelect
+                     purchaseData={purchaseData}
+                     setPurchaseData={setPurchaseData}
+                     seatData={seatData[1]}
+                  />
+               }
             />
             <Route
                path='/cinema/action/seats'
-               element={<SeatSelect seatData={seatData[2]} />}
+               element={
+                  <SeatSelect
+                     purchaseData={purchaseData}
+                     setPurchaseData={setPurchaseData}
+                     seatData={seatData[2]}
+                  />
+               }
             />
             <Route
                path='/cinema/horror/seats'
-               element={<SeatSelect seatData={seatData[3]} />}
+               element={
+                  <SeatSelect
+                     purchaseData={purchaseData}
+                     setPurchaseData={setPurchaseData}
+                     seatData={seatData[3]}
+                  />
+               }
             />
          </Routes>
       </BrowserRouter>
