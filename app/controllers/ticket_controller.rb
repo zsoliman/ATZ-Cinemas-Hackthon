@@ -1,7 +1,14 @@
 class TicketController < ApplicationController
 
+    skip_before_action :verify_authenticity_token
+
     def index 
         render json: Ticket.all
+    end
+
+    def show
+        ticket = Ticket.find_by!(id: params[:id])
+        render json: ticket
     end
 
     def purchase
