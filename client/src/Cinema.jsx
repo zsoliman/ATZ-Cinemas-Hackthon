@@ -28,7 +28,9 @@ const Cinema = ({ movieData }) => {
             })}
          </div>
          <div className='movie-details'>
-            {selectedMovieId !== 0 ? <Details movie={selectedMovie} /> : null}
+            {selectedMovieId !== 0 ? (
+               <Details movie={selectedMovie} genre={genre} />
+            ) : null}
          </div>
       </div>
    );

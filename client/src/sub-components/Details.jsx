@@ -1,4 +1,6 @@
-const Details = ({ movie }) => {
+import { Link } from "react-router-dom";
+
+const Details = ({ movie, genre }) => {
    const { name, genres, rating, description, runtime, release_date} = movie;
 
    const sepgenres = genres.split('-');
@@ -15,7 +17,9 @@ const Details = ({ movie }) => {
             {sepgenres.length === 3 ? <div className='genre-blob'>{sepgenres[2]}</div> : null}
          </div>
          <p>{description}</p>
-         <button> Buy Pass </button>
+         <Link to={`/cinema/${genre.toLowerCase()}/seats`} >
+           <button> Buy Pass </button>
+         </Link>
       </div>
     </div>
    );
