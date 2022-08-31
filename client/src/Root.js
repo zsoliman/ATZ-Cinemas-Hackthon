@@ -35,6 +35,7 @@ const Root = () => {
                path='/cinema/horror'
                element={<Cinema movieData={movieData[3]} />}
             />
+            <Route />
          </Routes>
       </BrowserRouter>
    );

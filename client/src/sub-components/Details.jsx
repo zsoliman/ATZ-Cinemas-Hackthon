@@ -1,13 +1,23 @@
 const Details = ({ movie }) => {
-   const { name, genres, rating, description, runtime} = movie;
+   const { name, genres, rating, description, runtime, release_date} = movie;
+
+   const sepgenres = genres.split('-');
    return (
-      <div>
+    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
+      <div className="movie-details">
          <h1>{name}</h1>
-         <p>{genres}</p>
-         <p>{rating}</p>
+         <p>
+            {release_date} • {rating} • {runtime}
+         </p>
+         <div className='genre-list'>
+            <div className='genre-blob'>{sepgenres[0]}</div>
+            {sepgenres.length === 2 ? <div className='genre-blob'>{sepgenres[1]}</div> : null}
+            {sepgenres.length === 3 ? <div className='genre-blob'>{sepgenres[2]}</div> : null}
+         </div>
          <p>{description}</p>
-         <p>{runtime}</p>
+         <button> Buy Pass </button>
       </div>
+    </div>
    );
 };
 export default Details;

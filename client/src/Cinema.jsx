@@ -6,6 +6,7 @@ const Cinema = ({ movieData }) => {
    const { capacity, genre, movies } = movieData;
    const [selectedMovieId, setSelectedMovieId] = useState(0);
 
+   console.log('movieData: ', movieData);
    const selectedMovie = movies.find((movie) => movie.id === selectedMovieId);
 
    console.log(selectedMovie);
@@ -19,6 +20,7 @@ const Cinema = ({ movieData }) => {
                   <Poster
                      id={movie.id}
                      name={movie.name}
+                     poster_img_src={movie.poster_img_src}
                      setSelectedMovieId={setSelectedMovieId}
                   />
                   // Pass down image
