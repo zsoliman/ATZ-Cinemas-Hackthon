@@ -1,4 +1,5 @@
 const Checkout = ({ purchaseData }) => {
+    console.log('purchasedata', purchaseData)
     return (
         <div>
             <h2>Review your cart:</h2>

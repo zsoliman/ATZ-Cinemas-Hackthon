@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const SeatSelect = ({ purchaseData, setPurchaseData, seatData }) => {
    const seats = sliceIntoChunks(seatData, 5);
 
@@ -56,6 +58,9 @@ const SeatSelect = ({ purchaseData, setPurchaseData, seatData }) => {
                );
             })}
          </div>
+         <Link to='/cinema/checkout'>
+            <button>Checkout</button>
+         </Link>
       </div>
    );
 };
