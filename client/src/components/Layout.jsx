@@ -5,7 +5,7 @@ import Footer from "../sub-components/Footer";
 const Layout = ({ children }) => {
   return (
     <>
-      <Profile />
+      {/* <Profile /> */}
       <main>{children}</main>
       <Footer />
     </>

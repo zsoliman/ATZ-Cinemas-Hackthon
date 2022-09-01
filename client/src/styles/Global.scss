@@ -96,9 +96,10 @@ $horror-color: #5D2E8C;
 
 .cinema-page-container {
   @extend .container
+
 }
 
-.cinema-page-container h1 {
+.movie-details h1 {
   text-decoration: none;
 }
 
@@ -246,7 +247,7 @@ hr {
   align-items: center;
   background-color: $bg-color;
   color: $text-color;
-  gap: 6em;
+  gap: 2em;
 }
 
 .screen {
@@ -291,7 +292,7 @@ hr {
 
 .seat-page-container button {
   @extend .button;
-  width: 29vw;
+  width: 25vw;
   height: 7vh;
   font-size: 2em;
 }
@@ -300,6 +301,7 @@ hr {
   border: 3px solid white;
   transform: scale(1.02);
   transition-duration: .5s;
+  height: 7vh;
 }
 
 .clicked-seat {
@@ -308,7 +310,7 @@ hr {
 }
 
 .checkout-container {
-  @extend .container
+  @extend .container;
 }
 
 .checkout-card {
@@ -330,4 +332,52 @@ hr {
   border: 3px solid white;
   transform: scale(1.02);
   transition-duration: .5s;
+}
+
+.auth-page {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  border: 3px solid white;
+  border-radius: 3em;
+  min-height: 70vh;
+  width: 40%
+}
+
+.auth-button {
+  @extend .button;
+  width: 50%;
+  height: 12vh;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.logout-button-container  .logout-button {
+  // @extend .button;
+  // display: flex;
+  // flex-direction: row;
+  font-size: 1em;
+  width: 10vh;
+  height: 5vh;
+}
+
+h2{
+  font-size: 2em;
+}
+
+.header-profile {
+  position: absolute;
+  top: 1em;
+  right: 2em;
+  display: flex;
+  gap: .5em;
+}
+
+
+.header-details {
+  display: flex;
+  flex-direction: column;
+  // align-items: cen;
+  justify-content: center;
 }

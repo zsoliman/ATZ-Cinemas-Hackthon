@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Profile from "./Auth0/Profile";
 
 const SeatSelect = ({ purchaseData, setPurchaseData, seatData }) => {
   const seats = sliceIntoChunks(seatData, 5);
@@ -31,13 +32,12 @@ const SeatSelect = ({ purchaseData, setPurchaseData, seatData }) => {
       },
       body: JSON.stringify({ 'is_available': false }),
     });
-    // .then(res => res.json())
-    // .then(jsonres => console.log(jsonres))
   };
 
   console.log(seats);
   return (
     <div className='seat-page-container'>
+      <Profile/>
       <div className='screen'> SCREEN </div>
       <div className='seat-list'>
         {seats.map((row) => {
@@ -72,7 +72,7 @@ const SeatSelect = ({ purchaseData, setPurchaseData, seatData }) => {
         })}
       </div>
       <Link to='/cinema/checkout'>
-        {purchaseData.length !== 0 ? <button>Checkout</button> : null}
+        {purchaseData.length !== 0 ? <button> Add to cart </button> : null}
       </Link>
     </div>
   );

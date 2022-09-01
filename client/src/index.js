@@ -11,10 +11,8 @@ root.render(
     domain='dev-59caw0g9.us.auth0.com'
     clientId='WIpWWKJP7xiszbKYzDEoBpmi23cCZXDD'
     redirectUri='http://localhost:4000/home'>
-    <React.StrictMode>
       <Layout>
         <Root />
       </Layout>
-    </React.StrictMode>
   </Auth0Provider>
 );

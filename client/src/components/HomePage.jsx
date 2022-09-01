@@ -1,6 +1,6 @@
 import '../styles/Global.scss';
 import { Link } from 'react-router-dom';
-
+import Profile from './Auth0/Profile';
 
 const HomePage = ({ movieData }) => {
   // console.log(movieData);
@@ -8,6 +8,7 @@ const HomePage = ({ movieData }) => {
 
   return (
     <div className='App'>
+      <Profile />
 
       <div className='genre-container'>
         <div className='genre-row'>

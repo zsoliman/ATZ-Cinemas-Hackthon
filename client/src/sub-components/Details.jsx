@@ -71,7 +71,7 @@ const Details = ({ movie, genre }) => {
         </div>
         <p>{description}</p>
         <Link to={`/cinema/${genre.toLowerCase()}/seats`} >
-          <button className={buttonColorLogic(genre)}> Reserve Seats </button>
+          <button className={buttonColorLogic(genre)}> Purchase Cinema Pass </button>
         </Link>
       </div>
     </div>

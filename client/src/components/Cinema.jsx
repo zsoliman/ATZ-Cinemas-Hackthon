@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Poster from '../sub-components/Poster';
 import Details from '../sub-components/Details';
+import Profile from './Auth0/Profile';
 
 const Cinema = ({ movieData, setSelectedCinema }) => {
   const { capacity, genre, movies } = movieData;
@@ -12,6 +13,7 @@ const Cinema = ({ movieData, setSelectedCinema }) => {
 
   return (
     <div className='cinema-page-container'>
+      <Profile />
       <div className='movie-list'>
         {movies.map((movie) => {
           return (
