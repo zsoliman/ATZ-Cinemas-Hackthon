@@ -1,10 +1,11 @@
-import Header from "../sub-components/Header";
+// import Header from "../sub-components/Header";
+import Profile from "./Auth0/Profile";
 import Footer from "../sub-components/Footer";
 
 const Layout = ({ children }) => {
   return (
     <>
-      <Header />
+      <Profile />
       <main>{children}</main>
       <Footer />
     </>
