@@ -2,7 +2,8 @@
 
 ### Setup:
 - run `bundle install` to install dependencies
-- run to start both servers `foreman start -f Procfile.dev`
+- run `npm install` in the client folder to install dependcies
+- To start both servers, run `foreman start -f Procfile.dev`
 
 
 ### Data:
