@@ -14,18 +14,22 @@ const Details = ({ movie, genre }) => {
         return 'action-blob'
       case 'Horror':
         return 'horror-blob'
+      default:
+        return null;
     }
   }
   const titleColorLogic = (genre) => {
     switch (genre) {
       case 'Romance':
-        return '#D36060'
+        return '#E9AFAF'
       case 'Comedy':
-        return '#F9DC5C'
+        return '#FBEA9D'
       case 'Action':
-        return '#690500'
+        return '#cc0a00'
       case 'Horror':
-        return '#5D2E8C'
+        return '#8c52c7'
+      default:
+        return null;
     }
   }
 
@@ -39,6 +43,8 @@ const Details = ({ movie, genre }) => {
         return 'action-button'
       case 'Horror':
         return 'horror-button'
+      default:
+        return null;
     }
   }
 
