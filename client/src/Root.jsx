@@ -4,6 +4,7 @@ import HomePage from './components/HomePage';
 import Cinema from './components/Cinema';
 import SeatSelect from './components/SeatSelect';
 import Checkout from './components/Checkout';
+import LoginScreen from './components/Auth0/LoginScreen';
 
 const Root = () => {
   const [movieData, setMovieData] = useState([]);
@@ -55,6 +56,11 @@ const Root = () => {
       <Routes>
         <Route
           path='/'
+          element={<LoginScreen />}
+        />
+
+        <Route
+          path='/home'
           element={<HomePage movieData={movieData} />}
         />
 
