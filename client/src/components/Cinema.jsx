@@ -2,13 +2,12 @@ import { useState } from 'react';
 import Poster from '../sub-components/Poster';
 import Details from '../sub-components/Details';
 
-const Cinema = ({ movieData }) => {
+const Cinema = ({ movieData, setSelectedCinema }) => {
   const { capacity, genre, movies } = movieData;
   const [selectedMovieId, setSelectedMovieId] = useState(0);
-
-  //  console.log('movieData: ', movieData);
   const selectedMovie = movies.find((movie) => movie.id === selectedMovieId);
 
+  setSelectedCinema(genre)
   //  console.log(selectedMovie);
 
   return (
@@ -17,6 +16,7 @@ const Cinema = ({ movieData }) => {
         {movies.map((movie) => {
           return (
             <Poster
+              key={movie.id}
               id={movie.id}
               genre={genre}
               poster_img_src={movie.poster_img_src}

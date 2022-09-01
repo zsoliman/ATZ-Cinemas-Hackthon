@@ -10,6 +10,7 @@ const Root = () => {
   const [seatData, setSeatData] = useState([]);
   const [ticketData, setTicketData] = useState([]);
   const [purchaseData, setPurchaseData] = useState([]);
+  const [selectedCinema, setSelectedCinema] = useState('')
 
 
   const fetchMovies = async () => {
@@ -30,15 +31,32 @@ const Root = () => {
     setTicketData(data);
   };
 
+  const convertGenreToId = (genre) => {
+    switch (genre) {
+      case 'Romance':
+        return 1;
+      case 'Comedy':
+        return 2;
+      case 'Action':
+        return 3;
+      case 'Horror':
+        return 4;
+      default:
+        return null;
+    }
+  }
+
+  const theaterTickets = ticketData.filter((ticket) => {return ticket.theater_id === convertGenreToId(selectedCinema)})
+  const availableTickets = theaterTickets.filter((ticket) => { return ticket.seat_id === null })
+  const purchasedTickets =  availableTickets.slice(0,purchaseData.length)
+
   useEffect(() => {
     fetchMovies();
     fetchSeats();
     fetchTickets();
   }, []);
 
-  //  console.log(ticketData);
 
-  //  const t1Seats = [move]
   function sliceIntoChunks(arr, chunkSize) {
     const res = [];
     for (let i = 0; i < arr.length; i += chunkSize) {
@@ -48,7 +66,7 @@ const Root = () => {
     return res;
   }
 
-  console.log(purchaseData);
+  console.log(selectedCinema);
 
   return (
     <BrowserRouter>
@@ -60,22 +78,22 @@ const Root = () => {
 
         <Route
           path='/cinema/romance'
-          element={<Cinema movieData={movieData[0]} />}
+          element={<Cinema setSelectedCinema={setSelectedCinema} movieData={movieData[0]} />}
         />
 
         <Route
           path='/cinema/comedy'
-          element={<Cinema movieData={movieData[1]} />}
+          element={<Cinema setSelectedCinema={setSelectedCinema} movieData={movieData[1]} />}
         />
 
         <Route
           path='/cinema/action'
-          element={<Cinema movieData={movieData[2]} />}
+          element={<Cinema setSelectedCinema={setSelectedCinema} movieData={movieData[2]} />}
         />
 
         <Route
           path='/cinema/horror'
-          element={<Cinema movieData={movieData[3]} />}
+          element={<Cinema setSelectedCinema={setSelectedCinema} movieData={movieData[3]} />}
         />
 
         <Route
@@ -124,7 +142,12 @@ const Root = () => {
 
         <Route
           path='/cinema/checkout'
-          element={<Checkout purchaseData={purchaseData} />}
+          element={
+            <Checkout
+              currentTicket={purchasedTickets}
+              purchaseData={purchaseData}
+            />
+          }
         />
 
       </Routes>

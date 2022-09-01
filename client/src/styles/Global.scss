@@ -284,6 +284,11 @@ hr {
   cursor: pointer;
 }
 
+.reserved-seat {
+  @extend .seat;
+  background-color: grey;
+}
+
 .seat-page-container button {
   @extend .button;
   width: 29vw;

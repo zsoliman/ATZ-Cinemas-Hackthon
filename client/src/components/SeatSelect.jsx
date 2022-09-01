@@ -24,13 +24,13 @@ const SeatSelect = ({ purchaseData, setPurchaseData, seatData }) => {
       setPurchaseData(filteredPurchases)
     }
     // setPurchaseData(inCart)
-    // fetch(`http://localhost:3000/seat/${seatId}`, {
-    //    method: 'PATCH',
-    //    headers: {
-    //       'Content-type': 'application/json',
-    //    },
-    //    body: JSON.stringify({ 'is_available': false }),
-    // });
+    fetch(`http://localhost:3000/seat/${seatId}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify({ 'is_available': false }),
+    });
     // .then(res => res.json())
     // .then(jsonres => console.log(jsonres))
   };
@@ -44,15 +44,28 @@ const SeatSelect = ({ purchaseData, setPurchaseData, seatData }) => {
           return (
             <div className='seat-row'>
               {row.map((seat) => {
-                return (
-                  <div
-                    className='seat'
-                    onClick={(e) => handleClick(seat.id, e.target)}
-                  >
-                    {' '}
-                    {seat.seat_num}{' '}
-                  </div>
-                );
+                console.log(seat.is_available)
+                if (seat.is_available === true) {
+                  return (
+                    <div
+                      key={seat.id}
+                      className='seat'
+                      onClick={(e) => handleClick(seat.id, e.target)}
+                    >
+                      {seat.seat_num}
+                    </div>
+                  );
+                }
+                else {
+                  return (
+                    <div
+                      key={seat.id}
+                      className='reserved-seat'
+                    >
+                      {/* {seat.seat_num} */}
+                    </div>
+                  )
+                }
               })}
             </div>
           );

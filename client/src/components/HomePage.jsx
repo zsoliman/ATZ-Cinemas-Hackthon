@@ -2,7 +2,7 @@ import '../styles/Global.scss';
 import { Link } from 'react-router-dom';
 
 const HomePage = ({ movieData }) => {
-  console.log(movieData);
+  // console.log(movieData);
 
   return (
     <div className='App'>
