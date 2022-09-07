@@ -8,7 +8,7 @@ const HomePage = ({ movieData }) => {
 
   return (
     <div className='App'>
-      <Profile />
+      {/* <Profile /> */}
 
       <div className='genre-container'>
         <div className='genre-row'>

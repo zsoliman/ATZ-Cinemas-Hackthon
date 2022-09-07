@@ -5,9 +5,7 @@ import Profile from './Profile';
 const LoginScreen = () => {
     return (
         <div>
-            <Profile />
             <LoginButton />
-            {/* <LogoutButton /> */}
         </div>
     )
 }

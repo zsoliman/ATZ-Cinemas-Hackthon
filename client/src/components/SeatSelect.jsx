@@ -37,7 +37,7 @@ const SeatSelect = ({ purchaseData, setPurchaseData, seatData }) => {
   console.log(seats);
   return (
     <div className='seat-page-container'>
-      <Profile/>
+      {/* <Profile/> */}
       <div className='screen'> SCREEN </div>
       <div className='seat-list'>
         {seats.map((row) => {

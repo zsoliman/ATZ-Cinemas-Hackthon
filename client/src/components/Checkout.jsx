@@ -1,8 +1,11 @@
 import { useState } from "react"
 import Profile from "./Auth0/Profile"
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Checkout = ({ purchaseData, currentTicket }) => {
   const [confirmed, setConfirmed] = useState(false)
+
+  const { user, isAuthenticated, isLoading } = useAuth0();
 
   console.log('purchasedata', purchaseData)
   console.log('currentTickets:', currentTicket)
@@ -36,12 +39,12 @@ const Checkout = ({ purchaseData, currentTicket }) => {
 
   return (
     <div className="checkout-container">
-      <Profile />
+      {/* <Profile /> */}
       <div className="checkout-card">
 
         {confirmed ?
-          <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column'}}>
-            <h2>Order confirmation has been sent to your email</h2>
+          <div className='order-details'>
+            {isAuthenticated && (<h2> Order confirmation has been sent to you {user.email} </h2>)}
           </div>
           :
           <div>
@@ -49,7 +52,7 @@ const Checkout = ({ purchaseData, currentTicket }) => {
             <h3>Number of Tickets:</h3>
             <p>{purchaseData.length}</p>
             <h3>Total Price:</h3>
-            <p>{purchaseData.length * 20}</p>
+            <p>{purchaseData.length * 60}</p>
             <button onClick={handleTicketPurchase}> Checkout </button>
           </div>}
 

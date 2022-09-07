@@ -5,6 +5,7 @@ import Cinema from './components/Cinema';
 import SeatSelect from './components/SeatSelect';
 import Checkout from './components/Checkout';
 import LoginScreen from './components/Auth0/LoginScreen';
+import Layout from './components/Layout';
 
 const Root = () => {
   const [movieData, setMovieData] = useState([]);
@@ -47,9 +48,9 @@ const Root = () => {
     }
   }
 
-  const theaterTickets = ticketData.filter((ticket) => {return ticket.theater_id === convertGenreToId(selectedCinema)})
+  const theaterTickets = ticketData.filter((ticket) => { return ticket.theater_id === convertGenreToId(selectedCinema) })
   const availableTickets = theaterTickets.filter((ticket) => { return ticket.seat_id === null })
-  const purchasedTickets =  availableTickets.slice(0,purchaseData.length)
+  const purchasedTickets = availableTickets.slice(0, purchaseData.length)
 
   useEffect(() => {
     fetchMovies();
@@ -71,92 +72,96 @@ const Root = () => {
 
   return (
     <BrowserRouter>
-      <Routes>
-        <Route
-          path='/'
-          element={<LoginScreen />}
-        />
+      <Layout>
 
-        <Route
-          path='/home'
-          element={<HomePage movieData={movieData} />}
-        />
 
-        <Route
-          path='/cinema/romance'
-          element={<Cinema setSelectedCinema={setSelectedCinema} movieData={movieData[0]} />}
-        />
+        <Routes>
+          <Route
+            path='/'
+            element={<LoginScreen />}
+          />
 
-        <Route
-          path='/cinema/comedy'
-          element={<Cinema setSelectedCinema={setSelectedCinema} movieData={movieData[1]} />}
-        />
+          <Route
+            path='/home'
+            element={<HomePage movieData={movieData} />}
+          />
 
-        <Route
-          path='/cinema/action'
-          element={<Cinema setSelectedCinema={setSelectedCinema} movieData={movieData[2]} />}
-        />
+          <Route
+            path='/cinema/romance'
+            element={<Cinema setSelectedCinema={setSelectedCinema} movieData={movieData[0]} />}
+          />
 
-        <Route
-          path='/cinema/horror'
-          element={<Cinema setSelectedCinema={setSelectedCinema} movieData={movieData[3]} />}
-        />
+          <Route
+            path='/cinema/comedy'
+            element={<Cinema setSelectedCinema={setSelectedCinema} movieData={movieData[1]} />}
+          />
 
-        <Route
-          path='/cinema/romance/seats'
-          element={
-            <SeatSelect
-              purchaseData={purchaseData}
-              setPurchaseData={setPurchaseData}
-              seatData={seatData[0]}
-            />
-          }
-        />
+          <Route
+            path='/cinema/action'
+            element={<Cinema setSelectedCinema={setSelectedCinema} movieData={movieData[2]} />}
+          />
 
-        <Route
-          path='/cinema/comedy/seats'
-          element={
-            <SeatSelect
-              purchaseData={purchaseData}
-              setPurchaseData={setPurchaseData}
-              seatData={seatData[1]}
-            />
-          }
-        />
+          <Route
+            path='/cinema/horror'
+            element={<Cinema setSelectedCinema={setSelectedCinema} movieData={movieData[3]} />}
+          />
 
-        <Route
-          path='/cinema/action/seats'
-          element={
-            <SeatSelect
-              purchaseData={purchaseData}
-              setPurchaseData={setPurchaseData}
-              seatData={seatData[2]}
-            />
-          }
-        />
+          <Route
+            path='/cinema/romance/seats'
+            element={
+              <SeatSelect
+                purchaseData={purchaseData}
+                setPurchaseData={setPurchaseData}
+                seatData={seatData[0]}
+              />
+            }
+          />
 
-        <Route
-          path='/cinema/horror/seats'
-          element={
-            <SeatSelect
-              purchaseData={purchaseData}
-              setPurchaseData={setPurchaseData}
-              seatData={seatData[3]}
-            />
-          }
-        />
+          <Route
+            path='/cinema/comedy/seats'
+            element={
+              <SeatSelect
+                purchaseData={purchaseData}
+                setPurchaseData={setPurchaseData}
+                seatData={seatData[1]}
+              />
+            }
+          />
 
-        <Route
-          path='/cinema/checkout'
-          element={
-            <Checkout
-              currentTicket={purchasedTickets}
-              purchaseData={purchaseData}
-            />
-          }
-        />
+          <Route
+            path='/cinema/action/seats'
+            element={
+              <SeatSelect
+                purchaseData={purchaseData}
+                setPurchaseData={setPurchaseData}
+                seatData={seatData[2]}
+              />
+            }
+          />
 
-      </Routes>
+          <Route
+            path='/cinema/horror/seats'
+            element={
+              <SeatSelect
+                purchaseData={purchaseData}
+                setPurchaseData={setPurchaseData}
+                seatData={seatData[3]}
+              />
+            }
+          />
+
+          <Route
+            path='/cinema/checkout'
+            element={
+              <Checkout
+                currentTicket={purchasedTickets}
+                purchaseData={purchaseData}
+              />
+            }
+          />
+
+        </Routes>
+      </Layout>
     </BrowserRouter>
   );
 };

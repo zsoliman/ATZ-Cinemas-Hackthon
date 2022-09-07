@@ -13,7 +13,7 @@ const Cinema = ({ movieData, setSelectedCinema }) => {
 
   return (
     <div className='cinema-page-container'>
-      <Profile />
+      {/* <Profile /> */}
       <div className='movie-list'>
         {movies.map((movie) => {
           return (

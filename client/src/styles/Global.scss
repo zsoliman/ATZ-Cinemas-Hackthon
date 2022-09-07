@@ -285,6 +285,12 @@ hr {
   cursor: pointer;
 }
 
+.seat:hover {
+  border: 3px solid white;
+  transform: scale(1.1);
+  transition-duration: .5s;
+}
+
 .reserved-seat {
   @extend .seat;
   background-color: grey;
@@ -380,4 +386,8 @@ h2{
   flex-direction: column;
   // align-items: cen;
   justify-content: center;
+}
+
+.order-details {
+  display: flex;
 }
